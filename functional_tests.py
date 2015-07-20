@@ -1,28 +1,39 @@
 from selenium import webdriver
+import unittest
 
-browser = webdriver.Firefox()
+class NewVisitorTest(unittest.TestCase):
 
-# User opens homepage
-browser.get('http://localhost:8000')
+    def setUp(self):
+        self.browser = webdriver.Firefox()
 
-# Page title mentions to-do lists
-assert 'To-Do' in browser.title
+    def tearDown(self):
+        self.browser.quit()
 
-# Can enter a to-do item right away
+    def test_can_start_list_and_retrieve(self):
+        # User opens homepage
+        self.browser.get('http://localhost:8000')
 
-# Types 'Buy milk'
+        # Page title mentions to-do lists
+        self.assertIn('To-Do', self.browser.title)
+        self.fail('Finish the test!')
 
-# When enter pressed, the page updates and lists
-# '1: Buy milk' as an item on a to-do list
+        # Can enter a to-do item right away
 
-# Text box is offering to add another line.
-# User enters 'Bake cake'
+        # Types 'Buy milk'
 
-# The page updates and shows both items
+        # When enter pressed, the page updates and lists
+        # '1: Buy milk' as an item on a to-do list
 
-# The site has made a unique URL for the list
-# and lets the user know.
+        # Text box is offering to add another line.
+        # User enters 'Bake cake'
 
-# User goes to the URL, the list is there
+        # The page updates and shows both items
 
-browser.quit()
+        # The site has made a unique URL for the list
+        # and lets the user know.
+
+        # User goes to the URL, the list is there
+
+if __name__ == '__main__':
+    unittest.main(warnings='ignore')
+
