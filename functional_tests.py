@@ -36,5 +36,5 @@ class NewVisitorTest(unittest.TestCase):
         # User goes to the URL, the list is there
 
 if __name__ == '__main__':
-    unittest.main(warnings='ignore')
+    unittest.main()
 
