@@ -56,4 +56,4 @@ class NewVisitorTest(LiveServerTestCase):
         # and lets the user know.
 
         # User goes to the URL, the list is there
-        self.fail('Finish this test!')
+        self.fail('YAY!')
